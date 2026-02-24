@@ -22,7 +22,7 @@ def launch_arguments():
     return [
         DeclareLaunchArgument(
             "scenario",
-            default_value=["10x6_central_obstacle"],
+            default_value=["10x6_empty_room"],
             description="scenario to simulate",
         ),
         DeclareLaunchArgument(
@@ -43,9 +43,7 @@ def launch_setup(context, *args, **kwargs):
     scenario = LaunchConfiguration("scenario").perform(context)
     pkg_dir = LaunchConfiguration("pkg_dir").perform(context)
 
-    params_yaml_file = os.path.join(
-        pkg_dir, "ros_params", "gaden_params.yaml"
-    )
+    params_yaml_file = os.path.join(pkg_dir, "ros_params", "gaden_params.yaml")
 
     return [
         Node(
@@ -72,8 +70,8 @@ def launch_setup(context, *args, **kwargs):
             name='gaden_filament_simulator',
             output='screen',
             parameters=[ParameterFile(params_yaml_file, allow_substs=True),
-                        {"sim_time": 300.0},
-                        {"runRate": 0.0}
+                        {"sim_time": 300.0},    # [sec] Total time of the gas dispersion simulation
+                        {"runRate": 0.0}        # Calculate the gas dispersion as fast as your computer can process it,
                         ]
         )
     ]

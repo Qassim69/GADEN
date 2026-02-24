@@ -1,25 +1,21 @@
 source:
-  sourceType: line
-  lineEnd:
-    - 1
-    - 0.8
-    - 0.7
-  position: [1, 4.95, 0.7]
-  gasType: 0
-deltaTime: 0.1
-windIterationDeltaTime: 1
-temperature: 298
-pressure: 1
-filamentPPMcenter: 20
-filamentInitialSigma: 10
-filamentGrowthGamma: 10
-filamentNoise_std: 0.02
-numFilaments_sec: 10
-expectedNumIterations: 600
-saveResults: true
-saveDeltaTime: 0.5
+  sourceType: point
+  position: [1.5, 3.0, 0.75]          # (m) Location of the release point!
+  gasType: 0                          # 0=Ethanol, 1=Methane, 2=Hydrogen, 6=Acetone
+deltaTime: 0.1                        # [sec] Time increment between snapshots. Set aprox = cell_size/max_wind_speed.
+windIterationDeltaTime: 1             # (sec) time increment between Wind snapshots
+temperature: 298                      # [Kelvins]
+pressure: 1                           # [Atm]
+filamentPPMcenter: 10                 # [ppm] Gas concentration at the center of the 3D gaussian (filament)
+filamentInitialSigma: 10              # [cm] Sigma of the filament at t=0-> 3DGaussian shape
+filamentGrowthGamma: 10               # [cm²/s] Growth ratio of the filament_std
+filamentNoise_std: 0.02               # [m] Range of the white noise added on each iteration
+numFilaments_sec: 20                  # Num of filaments released each second
+expectedNumIterations: 3000           # Steps to perform before the simulation is considered finished. Simulation Time(300s)*0.1s=3000 steps.
+saveResults: true                     # 1=true, 0=false
+saveDeltaTime: 0.2                    # (sec) Time increment between saving a Snapshot File. Simulation Time(300s)/0.2s=1500 Snapshots.
 preCalculateConcentrations: false
 windLooping:
-  loop: false
+  loop: true
   from: 0
-  to: 0
+  to: 24

@@ -24,7 +24,7 @@ def launch_arguments():
     return [
         DeclareLaunchArgument(
             "scenario",
-            default_value=["Exp_C"],
+            default_value=["10x6_empty_room"],
             description="scenario to simulate",
         ),
         DeclareLaunchArgument(
@@ -50,9 +50,7 @@ def launch_setup(context, *args, **kwargs):
     scenario = LaunchConfiguration("scenario").perform(context)
     pkg_dir = LaunchConfiguration("pkg_dir").perform(context)
 
-    params_yaml_file = os.path.join(
-        pkg_dir, "ros_params", "gaden_params.yaml"
-    )
+    params_yaml_file = os.path.join(pkg_dir, "ros_params", "gaden_params.yaml")
 
     return [
         Node(
@@ -62,13 +60,7 @@ def launch_setup(context, *args, **kwargs):
             name="rviz2",
             output="screen",
             prefix="xterm -hold -e",
-            arguments=[
-                "-d" + os.path.join(pkg_dir, "launch", "gaden.rviz")
-            ],
-            remappings=[
-                ("/initialpose", "/PioneerP3DX/initialpose"),
-                ("/goal_pose", "/PioneerP3DX/goal_pose"),
-            ],
+            arguments=["-d" + os.path.join(pkg_dir, "launch", "gaden.rviz")],
         ),
 
         # gaden_environment (for RVIZ visualization)
@@ -87,7 +79,7 @@ def launch_setup(context, *args, **kwargs):
             name="gaden_player",
             output="screen",
             parameters=[ParameterFile(params_yaml_file, allow_substs=True),
-                        {"player_freq": 2.0}
+                        {"player_freq": 5.0}        # (Hz) Freq for loading the simulation log_files
                         ],
         ),
     ]
