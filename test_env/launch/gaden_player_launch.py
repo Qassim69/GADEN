@@ -79,7 +79,7 @@ def launch_setup(context, *args, **kwargs):
             name="gaden_player",
             output="screen",
             parameters=[ParameterFile(params_yaml_file, allow_substs=True),
-                        {"player_freq": 5.0}        # (Hz) Freq for loading the simulation log_files
+                        {"player_freq": 3.0}        # (Hz) Freq for loading the simulation log_files
                         ],
         ),
     ]
