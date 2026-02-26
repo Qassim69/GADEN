@@ -73,7 +73,7 @@ void FakeGasSensor::run()
 
     // Loop
     auto tf_buffer = std::make_unique<tf2_ros::Buffer>(this->get_clock());
-    auto listener = std::make_shared<tf2_ros::TransformListener>(*tf_buffer);
+    auto listener = std::make_shared<tf2_ros::TransformListener>(*tf_buffer, shared_this);
 
     while (rclcpp::ok() && !playerClient->wait_for_service(std::chrono::seconds(5)))
         RCLCPP_INFO(get_logger(), "WAITING FOR GADEN_PLAYER SERVICE");
