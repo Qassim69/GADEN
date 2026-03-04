@@ -59,7 +59,7 @@ def launch_setup(context, *args, **kwargs):
             executable="rviz2",
             name="rviz2",
             output="screen",
-            prefix="xterm -hold -e",
+            # prefix="xterm -hold -e",
             arguments=["-d" + os.path.join(pkg_dir, "launch", "gaden.rviz")],
         ),
 
