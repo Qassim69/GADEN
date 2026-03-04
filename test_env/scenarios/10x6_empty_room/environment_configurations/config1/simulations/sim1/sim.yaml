@@ -11,7 +11,7 @@ filamentInitialSigma: 10              # [cm] Sigma of the filament at t=0-> 3DGa
 filamentGrowthGamma: 10               # [cm²/s] Growth ratio of the filament_std
 filamentNoise_std: 0.02               # [m] Range of the white noise added on each iteration
 numFilaments_sec: 20                  # Num of filaments released each second
-expectedNumIterations: 3000           # Steps to perform before the simulation is considered finished. Simulation Time(300s)*0.1s=3000 steps.
+expectedNumIterations: 3700           # Steps to perform before the simulation is considered finished. Simulation Time(370s)*0.1s=3700 steps.
 saveResults: true                     # 1=true, 0=false
 saveDeltaTime: 0.2                    # (sec) Time increment between saving a Snapshot File. Simulation Time(300s)/0.2s=1500 Snapshots.
 preCalculateConcentrations: false

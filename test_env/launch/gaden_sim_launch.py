@@ -70,7 +70,7 @@ def launch_setup(context, *args, **kwargs):
             name='gaden_filament_simulator',
             output='screen',
             parameters=[ParameterFile(params_yaml_file, allow_substs=True),
-                        {"sim_time": 300.0},    # [sec] Total time of the gas dispersion simulation
+                        {"sim_time": 370.0},    # [sec] Total time of the gas dispersion simulation
                         {"runRate": 0.0}        # Calculate the gas dispersion as fast as your computer can process it,
                         ]
         )
