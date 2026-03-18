@@ -2,7 +2,7 @@ playback_initial_iteration: 0
 playback_loop:
   loop: true
   from: 0         # Start loop at the file named iteration_0
-  to: 1499        # Start loop at the file named iteration_1499
+  to: 1459        # Start loop at the file named iteration_1459
 simulations:
   - sim: sim1
     gas_color: [0.0, 0.1, 0.0]
